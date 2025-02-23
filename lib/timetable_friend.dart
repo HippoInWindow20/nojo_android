@@ -15,7 +15,8 @@ List times = [
 ];
 
 class TimetableF extends StatefulWidget {
-  const TimetableF({super.key});
+  const TimetableF({super.key, required this.name});
+  final String name;
 
   @override
   State<TimetableF> createState() => _TimetableFState();
@@ -40,7 +41,7 @@ class _TimetableFState extends State<TimetableF> {
               backgroundColor: CupertinoDynamicColor.resolve(
                   CupertinoColors.systemBackground, context),
               border: null,
-              largeTitle: Text('XXX的課表'),
+              largeTitle: Text(widget.name + '的課表'),
             ),
             // This widget fills the remaining space in the viewport.
             // Drag the scrollable area to collapse the CupertinoSliverNavigationBar.
@@ -71,7 +72,7 @@ class _TimetableFState extends State<TimetableF> {
                                         color: CupertinoDynamicColor.resolve(
                                                 CupertinoColors.systemBlue,
                                                 context)
-                                            .withValues(alpha: 0.3),
+                                            .withValues(alpha: 0.1),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       child: Center(
@@ -105,10 +106,10 @@ class _TimetableFState extends State<TimetableF> {
                                         border: Border.all(
                                             color:
                                                 CupertinoDynamicColor.resolve(
-                                                    CupertinoColors.systemGrey,
+                                                    CupertinoColors.systemGrey4,
                                                     context)),
                                         color: CupertinoDynamicColor.resolve(
-                                            CupertinoColors.systemGrey4,
+                                            CupertinoColors.systemGrey5,
                                             context),
                                         borderRadius: BorderRadius.circular(10),
                                       ),

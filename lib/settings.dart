@@ -258,6 +258,8 @@ class _SettingsState extends State<Settings> {
                           ),
                           children: <CupertinoListTile>[
                             CupertinoListTile(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 10),
                               title: Text(
                                 '選擇學校',
                               ),

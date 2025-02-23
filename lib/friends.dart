@@ -159,7 +159,9 @@ class _FriendsState extends State<Friends> {
                           ),
                           onTap: () => Navigator.of(context).push(
                             CupertinoPageRoute(
-                                builder: (context) => TimetableF()),
+                                builder: (context) => TimetableF(
+                                      name: "許晉誠",
+                                    )),
                           ),
                         ),
                       ],

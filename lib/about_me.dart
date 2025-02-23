@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
   const About({super.key});
@@ -9,6 +10,13 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
+  Future<void> _launchUrl(String url) async {
+    final Uri _url = Uri.parse(url);
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -100,14 +108,19 @@ class _AboutState extends State<About> {
                                   padding: EdgeInsets.zero,
                                   sizeStyle: CupertinoButtonSize.large,
                                   child: Text('hi1214justin@gmail.com'),
-                                  onPressed: () {})
+                                  onPressed: () {
+                                    _launchUrl('mailto:hi1214justin@gmail.com');
+                                  })
                             ],
                           ),
                           CupertinoButton(
                               padding: EdgeInsets.zero,
                               sizeStyle: CupertinoButtonSize.large,
                               child: Text('Instagram'),
-                              onPressed: () {})
+                              onPressed: () {
+                                _launchUrl(
+                                    'https://www.instagram.com/justin.chung.2547/');
+                              })
                         ],
                       ),
                     ),

@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 bool login = true;
+bool loggingIn = false;
 
 class Logout extends StatefulWidget {
   const Logout({super.key, required this.setStateCallback});
@@ -26,8 +27,8 @@ class _LogoutState extends State<Logout> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: <Color>[
-              Color.fromARGB(184, 181, 200, 255),
-              Color.fromARGB(230, 233, 204, 255),
+              Color.fromARGB(255, 181, 200, 255),
+              Color.fromARGB(255, 233, 204, 255),
             ],
             tileMode: TileMode.mirror,
           )),
@@ -64,11 +65,14 @@ class _LogoutState extends State<Logout> {
                       color: CupertinoColors.systemGrey,
                     ),
                   ),
+                  style: TextStyle(color: CupertinoColors.black),
                   placeholder: 'Email',
                   padding: EdgeInsets.all(20),
+                  placeholderStyle:
+                      TextStyle(color: CupertinoColors.systemGrey),
                   decoration: BoxDecoration(
-                    color: CupertinoColors.white,
                     borderRadius: BorderRadius.circular(10),
+                    color: CupertinoColors.white,
                   ),
                 ),
               ),
@@ -85,12 +89,15 @@ class _LogoutState extends State<Logout> {
                       color: CupertinoColors.systemGrey,
                     ),
                   ),
+                  style: TextStyle(color: CupertinoColors.black),
                   placeholder: '密碼',
-                  padding: EdgeInsets.all(20),
+                  placeholderStyle:
+                      TextStyle(color: CupertinoColors.systemGrey),
                   decoration: BoxDecoration(
-                    color: CupertinoColors.white,
                     borderRadius: BorderRadius.circular(10),
+                    color: CupertinoColors.white,
                   ),
+                  padding: EdgeInsets.all(20),
                 ),
               ),
               if (login == false)
@@ -106,10 +113,13 @@ class _LogoutState extends State<Logout> {
                       ),
                     ),
                     placeholder: '名字',
+                    style: TextStyle(color: CupertinoColors.black),
                     padding: EdgeInsets.all(20),
+                    placeholderStyle:
+                        TextStyle(color: CupertinoColors.systemGrey),
                     decoration: BoxDecoration(
-                      color: CupertinoColors.white,
                       borderRadius: BorderRadius.circular(10),
+                      color: CupertinoColors.white,
                     ),
                   ),
                 ),
@@ -119,11 +129,29 @@ class _LogoutState extends State<Logout> {
                     children: [
                       Expanded(
                         child: CupertinoButton.filled(
-                          child: Text(
-                            login ? '登入' : '註冊',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (loggingIn)
+                                CupertinoActivityIndicator(
+                                  color: CupertinoColors.white,
+                                ),
+                              if (loggingIn)
+                                Padding(padding: EdgeInsets.only(left: 10)),
+                              Text(
+                                login ? '登入' : '註冊',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ],
                           ),
-                          onPressed: () {
+                          onPressed: () async {
+                            setState(() {
+                              loggingIn = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 1));
+                            setState(() {
+                              loggingIn = false;
+                            });
                             Navigator.pushReplacement(
                                 context,
                                 CupertinoPageRoute(
