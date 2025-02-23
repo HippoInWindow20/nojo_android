@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'timetable.dart';
 import 'friends.dart';
@@ -20,11 +19,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
   void setStateCallback() {
     setState(() {});
   }
 
+  @override
   Widget build(BuildContext context) {
     return CupertinoApp(
       theme: CupertinoThemeData(

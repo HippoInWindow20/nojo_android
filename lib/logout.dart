@@ -1,8 +1,5 @@
-import 'dart:math';
-
 import 'package:bujo/main.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 bool login = true;
 bool loggingIn = false;
