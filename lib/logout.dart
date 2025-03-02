@@ -13,6 +13,22 @@ class Logout extends StatefulWidget {
 }
 
 class _LogoutState extends State<Logout> {
+  void accountAction() async {
+    setState(() {
+      loggingIn = true;
+    });
+    await Future.delayed(const Duration(seconds: 1));
+    setState(() {
+      loggingIn = false;
+    });
+    Navigator.pushReplacement(
+        context,
+        CupertinoPageRoute(
+            builder: (context) => MyHomePage(
+                  setStateCallback: widget.setStateCallback,
+                )));
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -141,22 +157,7 @@ class _LogoutState extends State<Logout> {
                               )
                             ],
                           ),
-                          onPressed: () async {
-                            setState(() {
-                              loggingIn = true;
-                            });
-                            await Future.delayed(const Duration(seconds: 1));
-                            setState(() {
-                              loggingIn = false;
-                            });
-                            Navigator.pushReplacement(
-                                context,
-                                CupertinoPageRoute(
-                                    builder: (context) => MyHomePage(
-                                          setStateCallback:
-                                              widget.setStateCallback,
-                                        )));
-                          },
+                          onPressed: loggingIn ? null : accountAction,
                         ),
                       ),
                     ],

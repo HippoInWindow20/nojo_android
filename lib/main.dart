@@ -1,3 +1,4 @@
+import 'package:bujo/bulletin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'timetable.dart';
@@ -61,15 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.calendar),
-              label: 'Timetable',
+              label: '課表',
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.person_circle_fill),
-              label: 'Friends',
+              label: '朋友的課表',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.bell_fill),
+              label: '布告欄',
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.settings),
-              label: 'Settings',
+              label: '設定',
             ),
           ],
         ),
@@ -85,6 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
           } else if (index == 1) {
             return Friends();
           } else if (index == 2) {
+            return Bulletin();
+          } else if (index == 3) {
             return Settings(
               setStateCallback: widget.setStateCallback,
             );
