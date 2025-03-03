@@ -70,9 +70,7 @@ class _BulletinState extends State<Bulletin> {
                                     ],
                                   ),
                                   Padding(padding: EdgeInsets.only(top: 10)),
-                                  Text('校內活動',
-                                      style: TextStyle(
-                                          color: CupertinoColors.black)),
+                                  Text('校內活動'),
                                   Padding(padding: EdgeInsets.only(top: 10)),
                                   Row(
                                     children: [

@@ -83,10 +83,7 @@ class _FriendsState extends State<Friends> {
                             Padding(padding: EdgeInsets.only(left: 10)),
                             Text(
                               '新增好友',
-                              style: TextStyle(
-                                  color: CupertinoDynamicColor.resolve(
-                                      CupertinoColors.black, context),
-                                  fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold),
                             )
                           ],
                         )),
@@ -138,10 +135,7 @@ class _FriendsState extends State<Friends> {
                             Padding(padding: EdgeInsets.only(left: 10)),
                             Text(
                               '現在有空的朋友',
-                              style: TextStyle(
-                                  color: CupertinoDynamicColor.resolve(
-                                      CupertinoColors.black, context),
-                                  fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold),
                             )
                           ],
                         )),
@@ -168,10 +162,7 @@ class _FriendsState extends State<Friends> {
                             Padding(padding: EdgeInsets.only(left: 10)),
                             Text(
                               '現在有課的朋友',
-                              style: TextStyle(
-                                  color: CupertinoDynamicColor.resolve(
-                                      CupertinoColors.black, context),
-                                  fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold),
                             )
                           ],
                         )),
